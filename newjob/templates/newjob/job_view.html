@@ -1,0 +1,56 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/job_view.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display_job">
+        <div class="sim">
+            <img src="/../static/newjob/media/{{job.image}}" alt="image_job">
+            <div class="right">
+                <h1>{{job.title}}</h1>
+                {% if user.enterprise %}
+                    <p>U${{job.minimum_salary}} - U${{job.maximum_salary}}<br>
+                    {{job.business_name}}<br>
+                    {{job.timestamp}}</p>
+                {% else %}
+                    <p>U${{job.minimum_salary}} - U${{job.maximum_salary}}<br>
+                    {{job.business_name}}<br>
+                    {{job.timestamp}}</p>
+                    <button class="register_button">Register</button>
+                {% endif %}
+                
+            </div>
+        </div>
+
+        <div class="description">
+            <h4>Description</h4>
+            <p>{{job.description}}</p>
+        </div>
+        <div class="id" style="display: none;">
+            <p class="user_id">{{user.id}}</p>
+            <p class="job_id">{{job.id}}</p>
+        </div>
+    </div>
+
+    {% if user_dict ==  job.business_name %}
+        <div class="see_more_content"></div>
+        <div class="content_all">
+            <div class="all">
+                <a class="close" href="/closejob/job-id={{job.id}}">Close job</a>
+                <div class="content_enterprise">
+                    <h3>Registered Users</h3>
+                    <div class="registered_users">
+        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="{% static 'newjob/js/get_registers_users.js' %}"></script>
+    {% endif %}
+
+    <script src="{% static 'newjob/js/register_user_in_job.js' %}"></script>
+
+{% endblock %}

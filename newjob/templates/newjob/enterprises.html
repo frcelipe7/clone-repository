@@ -1,0 +1,23 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/enterprise.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display">
+        <h1>Enterprises</h1>
+        <div class="block">
+            {% for enterprise in all_enterprises %}
+                <a class="link_content" href="/enterprise/{{enterprise}}/id={{enterprise.id}}">
+                    <div class="content_enterprise">
+                        <img src="/static/newjob/media/{{enterprise.image}}" alt="enterprise_image">
+                        <strong>{{enterprise}}</strong>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+    
+{% endblock %}

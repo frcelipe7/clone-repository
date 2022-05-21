@@ -1,0 +1,45 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/enterprise_view.css' %}" rel="stylesheet">
+    <link href="{% static 'newjob/css/job.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display">
+        <div class="top">
+            <div class="left">
+                <img class="enterprise_image" src="/static/newjob/media/{{enterprise.image}}" alt="{{enterprise}} image">
+                <h1>{{enterprise}}</h1>
+                {% if user.username == enterprise.username %}
+                    <a href="{% url 'edit_profile' %}">
+                        <button>Edit Profile</button>
+                    </a>
+                {% endif %}
+            </div>
+            {% if enterprise.enterprise_description != 'none' %}
+                <p>
+                    {{enterprise.enterprise_description}}
+                </p>
+            {% endif %}
+        </div>
+        
+        <div class="display_jobs">
+            <h3 class="announced_jobs">Announced Jobs:</h3>
+            {% for job in enterprise_jobs %}
+                <a class="job_link" href="/job/view/id={{job.id}}">
+                    <div class="job_content">
+                        <img src="/static/newjob/media/{{job.image}}" alt="">
+                        <strong class="job_title">{{job.title}}</strong>
+                        <p>{{job.minimum_salary}} - {{job.maximum_salary}}</p>
+                        <div class="announced_on">{{job.timestamp}}</div>
+                    </div>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <script src="{% static 'newjob/js/color_job.js' %}"></script>
+
+{% endblock %}

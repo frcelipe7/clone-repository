@@ -1,0 +1,42 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display">
+        <div class="left">
+            <div class="user_image">
+                <img src="/static/newjob/media/{{user.image}}" alt="">
+            </div>
+            <div class="info">
+                <strong>{{user.first_name}} {{user.last_name}}</strong>
+                <p>{{user.username}}</p>
+                <p>Email: {{user.email}}</p>
+
+                <a href="{% url 'edit_profile' %}">
+                    <button>Edit Profile</button>
+                </a>
+            </div>
+        </div>
+        <div class="right">
+            <h2>Experience:</h2>
+            <p>{{user.experience}}</p>
+            {% if user.experience == "" %}
+                <div class="question">
+                    <p>
+                        You have not experience registered. Do you wanna do it now? <br>
+                        <div class="response">
+                            <div class="yes">Yes</div> <div class="not_yet">Not yet</div>
+                        </div>
+                    </p>
+                </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <script src="{% static 'newjob/js/profile.js' %}"></script>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+.content
+{
+    background-color: #04052E;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    flex-direction: column;
+    color: #F2F2F2;
+}
+
+form
+{
+    background-color: #F2F2F2;
+    border-radius: 20px;
+    padding: 30px;
+    display: flex;
+    flex-direction: column;
+    min-height: 400px;
+    width: 500px;
+    color: #04052E;
+    margin-top: 10px;
+}
+
+@media (max-width: 500px) {
+    form {width: 80%;}
+}
+
+textarea 
+{
+    width: 100%;
+    height: 200px;
+    min-height: 200px;
+    max-height: 300px;
+}

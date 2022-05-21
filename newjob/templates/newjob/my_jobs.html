@@ -1,0 +1,29 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/my_jobs.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="content">
+        <h2>Closed Jobs</h2>
+        <div class="closed_jobs_content">
+            
+        </div>
+    </div>
+    <div class="content">
+        <h2>Opened Jobs</h2>
+        <div class="jobs_content">
+
+        </div>
+    </div>
+    
+    <div class="id" style="display: none;">
+        <p class="user_id">{{user.id}}</p>
+        <p class="job_id">{{job.id}}</p>
+    </div>
+
+    <script src="{% static 'newjob/js/my_jobs.js' %}"></script>
+
+{% endblock %}

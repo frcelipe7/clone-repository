@@ -1,0 +1,45 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <style>
+        form
+        {
+            margin: auto;
+            color: #F2F2F2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            padding: 30px;
+        }
+        .response 
+        {
+            display: flex;
+            flex-direction: row;
+        }
+        form .reponse button {color: red;}
+        form .reponse a {color: green;}
+        form .reponse button, form .reponse a
+        {
+            border: none;
+            text-decoration: none;
+            padding: 10px 20px;
+            background-color: #F2F2F2;
+            border-radius: 20px;
+            font-weight: 700;
+            margin: 10px 5px;
+        }
+    </style>
+{% endblock %}
+
+{% block body %}
+        <form method="POST" action="/closejob/job-id={{job.id}}" enctype="multipart/form-data">
+            {%csrf_token%}
+            <h4>Are you sure you want to close this job?</h4>
+            <div class="reponse">
+                <button type="submit">YES, I'm sure.</button>
+                <a href="/job/view/id={{job.id}}">NO, I'm not.</a>
+            </div>
+        </form>
+{% endblock %}

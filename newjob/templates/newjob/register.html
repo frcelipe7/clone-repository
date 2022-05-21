@@ -1,0 +1,88 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/register.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+<div class="content">
+    <div class="register_user">
+        <p class="title">Register as User</p>
+
+        {% if message_user %}
+            <div>{{ message_user }}</div>
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" id="enterprise" name="enterprise" value="false">
+
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="username" placeholder="Username">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="first_name" placeholder="First Name">
+            </div>
+            
+            <div class="form-group">
+                <input class="form-control" type="text" name="last_name" placeholder="Last Name">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmation" placeholder="Confirme your password">
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Register">
+        </form>
+    </div>
+
+    <div class="register_enterprise">
+        <p class="title">Register as Enterprise</p>
+
+        {% if message_enterprise %}
+            <div>{{ message_enterprise }}</div>
+        {% endif %}
+
+        <form action="{% url 'register' %}" method="POST">
+            {% csrf_token %}
+
+            <input type="hidden" id="enterprise" name="enterprise" value="true">
+
+            <div class="form-group">
+                <input class="form-control" type="text" name="enterprise_name" placeholder="Enterprise name">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="email" name="email" placeholder="Email">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="password" placeholder="Password">
+            </div>
+
+            <div class="form-group">
+                <input class="form-control" type="password" name="confirmation" placeholder="Confirme your password">
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Register">
+        </form>
+    </div>
+</div>
+<p class="link_login">
+    Alredy have an account? <a href="{% url 'login' %}">Login.</a>
+</p>
+
+{% endblock %}

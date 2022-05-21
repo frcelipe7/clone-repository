@@ -1,0 +1,42 @@
+.content {display: flex; padding: 10px; background-color: #04052E;}
+.register_user, .register_enterprise
+{
+    width: 50%;
+    padding: 10px;
+    position: relative;
+    background-color: #f2f2f2;
+    margin: 10px;
+    border-radius: 20px;
+    padding: 20px;
+    color: #BA2D0B;
+}
+input[type=text], input[type=password], input[type=email]
+{
+    background-color: #f2f2f2;
+    border: none;
+    border-bottom: 1px solid #BA2D0B;
+    color: #04052E;
+    border-radius: 0;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    outline: none;
+}
+
+input[type=text]:focus, input[type=password]:focus, input[type=email]:focus
+{
+    border: 1px solid #BA2D0B;
+    background-color: #f2f2f2;
+}
+
+.link_login {margin: 20px; background-color: #04052E; color: #f2f2f2;}
+.title {font-size: 20pt; font-weight: bold;}
+.message {position: absolute; margin-top: -20px;}
+form {margin-top: 20px;}
+@media (max-width:770px) {
+    .title {font-size: 17pt; font-weight: bold;}
+}
+
+@media (max-width: 650px) {
+    .content {flex-direction: column; align-items: center;}
+    .register_user, .register_enterprise {width: 90%;}
+}

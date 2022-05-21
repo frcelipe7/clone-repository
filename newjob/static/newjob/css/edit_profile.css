@@ -1,0 +1,28 @@
+.display
+{
+    background-color: #04052E;
+    color: #f2f2f2;
+    height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.display form
+{
+    padding: 50px;
+    margin: auto;
+    width: 500px;
+    background-color: #BA2D0B;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+textarea {width: 100%;}
+
+@media (max-width: 550px) {
+    .display form {width: 90%;}
+}

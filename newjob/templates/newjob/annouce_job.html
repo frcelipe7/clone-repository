@@ -1,0 +1,45 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/announce_job.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div class="content">
+        {% if user.enterprise %}
+            {% if message %}
+                {{message}}
+            {% endif %}
+            <form action="/announce_job" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
+                <div class="title">
+                    Title: {{form.title}}
+                </div>
+                <div class="description">
+                    Description:<br>
+                    {{form.description}}
+                </div>
+                <div class="category">
+                    Category: {{form.category}}
+                </div>
+                <div class="image">
+                Image: {{form.image}}
+                </div>
+                <div class="salary">
+                    <div class="minimum_salary">
+                        Minimum Salary: {{form.minimum_salary}}
+                    </div>
+                    <div class="maximum_salary">
+                        Maximum Salary: {{form.maximum_salary}}
+                    </div>
+                </div>
+                <button type="submit">Announce</button>
+            </form>
+        {% else %}
+            <h2>You are not allowed to access this page!</h2>
+        {% endif %}
+    </div>
+
+{% endblock %}

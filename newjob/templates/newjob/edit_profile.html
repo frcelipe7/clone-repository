@@ -1,0 +1,34 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/edit_profile.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display">
+        <form method="POST" action="/profile/user/edit" enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% if user.enterprise %}
+                <div class="textarea">
+                    Description: {{form.experience}}
+                </div>
+            {% else %}
+                <div class="name">
+                    <div class="first">First Name: {{form.first_name}}</div>
+                    <div class="last">Last Name: {{form.last_name}}</div>
+                </div>
+                <div class="textarea">
+                    Experience: {{form.experience}}
+                </div>
+            {% endif %}
+            
+            <div class="image">
+                Image: {{form.image}}
+            </div>
+            
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+{% endblock %}

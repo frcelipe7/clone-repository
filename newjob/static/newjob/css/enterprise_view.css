@@ -1,0 +1,83 @@
+.display
+{
+    background-color: #04052E;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    padding-top: 30px;
+    flex-direction: column;
+}
+
+.display .top .left
+{
+    width: 35%;
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.display .top
+{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    width: 95%;
+    margin: auto;
+}
+
+.display .top .enterprise_image
+{
+    width: 200px;
+    height: 200px;
+    border-radius: 500px;
+    object-fit: cover;
+    margin-bottom: 50px;
+    margin: auto;
+}
+
+.display p
+{
+    color: #bfbfbf;
+    text-align: justify;
+    width: 62%;
+    margin: auto;
+    margin-right: 0;
+}
+
+.display .top h1
+{
+    color: #F2F2F2;
+    margin: auto;
+    margin: 20px 0;
+}
+
+@media (max-width: 730px) {
+    .display .top .left
+    {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .display p
+    {
+        width: 80%;
+        margin: auto;
+    }
+    .display .top .left h1
+    {
+        text-align: center;
+        margin: 0px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.announced_jobs{position: absolute; color: #F2F2F2; left: 4%; margin-top: -30px;}
+
+.display .display_jobs
+{
+    padding-top: 60px;
+}

@@ -1,0 +1,54 @@
+{% extends "newjob/layout.html" %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/login.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+
+    <div class="content">
+        <div class="login_user">
+            <p class="title">Login as User</p>
+
+            {% if message_user %}
+                <div class="message">{{message_user}}</div>
+            {% endif %}
+
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" id="enterprise" name="enterprise" value="false">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Username">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+        <div class="login_enterprise">
+            <p class="title">Login as Enterprise</p>
+
+            {% if message_enterprise %}
+                <div class="message">{{message_enterprise}}</div>
+            {% endif %}
+
+            <form action="{% url 'login' %}" method="POST">
+                {% csrf_token %}
+                <input type="hidden" id="enterprise" name="enterprise" value="true">
+                <div class="form-group">
+                    <input class="form-control" type="text" name="username" placeholder="Enterprise name">
+                </div>
+                <div class="form-group">
+                    <input class="form-control" type="password" name="password" placeholder="Password">
+                </div>
+                <input class="btn btn-primary" type="submit" value="Login">
+            </form>
+        </div>
+    </div>
+    <p class="link_register">
+        Don't have an account? <a href="{% url 'register' %}">Register here.</a>
+    </p>
+
+{% endblock %}

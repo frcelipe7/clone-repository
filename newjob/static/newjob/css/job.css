@@ -1,0 +1,30 @@
+.display_jobs
+{
+    display: flex;
+    flex-wrap: wrap;
+    height: auto;
+    padding: 30px;
+    background-color: #04052E;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+}
+
+.job_content
+{
+    width: 220px;
+    height: 300px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.job_link {margin: 15px; text-decoration: none;}
+
+.job_content img
+{
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px 10px 0 0;
+    margin-bottom: 10px;
+}

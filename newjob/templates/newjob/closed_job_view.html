@@ -1,0 +1,38 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/job_view.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display_job">
+        <div class="sim">
+            <img src="/../static/newjob/media/{{job.image}}" alt="image_job">
+            <div class="right">
+                <h1>{{job.title}}</h1>
+                {% if user.enterprise %}
+                    <p>{{job.business_name}}<br>
+                    {{job.timestamp}}</p>
+                {% else %}
+                    <p>{{job.business_name}}<br>
+                    {{job.timestamp}}</p>
+                    <strong>You was hired</strong>
+                {% endif %}
+                
+            </div>
+        </div>
+
+        <div class="description">
+            <h4>Description</h4>
+            <p>{{job.description}}</p>
+        </div>
+        <div class="id" style="display: none;">
+            <p class="user_id">{{user.id}}</p>
+            <p class="job_id">{{job.id}}</p>
+        </div>
+    </div>
+
+    <!-- Buscar os outros usuários que estão contratados pra essa vaga -->
+
+{% endblock %}

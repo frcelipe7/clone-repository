@@ -1,0 +1,24 @@
+{% extends 'newjob/layout.html' %}
+{% load static %}
+
+{% block head %}
+    <link href="{% static 'newjob/css/job.css' %}" rel="stylesheet">
+{% endblock %}
+
+{% block body %}
+    <div class="display_jobs">
+        {% for job in jobs %}
+            <a class="job_link" href="/job/view/id={{job.id}}">
+                <div class="job_content">
+                    <img src="/static/newjob/media/{{job.image}}" alt="">
+                    <strong class="job_title">{{job.title}}</strong>
+                    <p>U${{job.minimum_salary}} - U${{job.maximum_salary}}</p>
+                    <div class="announced_on">{{job.timestamp}}</div>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+
+    <script src="{% static 'newjob/js/color_job.js' %}"></script>
+
+{% endblock %}
